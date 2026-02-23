@@ -1,0 +1,20 @@
+package steel:plugin;
+
+interface entry {
+  record call {
+    facet-id: list<u8>,
+    method-id: u32,
+    receiver-handle: option<u32>,
+    payload: list<u8>,
+  }
+
+  record invoke-result {
+    payload: list<u8>,
+  }
+
+  invoke: func(call: call) -> invoke-result;
+}
+
+world plugin {
+  export entry;
+}
